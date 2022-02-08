@@ -6,7 +6,8 @@ import javax.persistence.*;
 
 @Data
 @Entity
-public class Category {
+@Table(name = "manufacturers")
+public class Manufacturer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,16 +15,15 @@ public class Category {
 
     private String name;
 
-    @Column(length = 4000)
+    @Column(name = "manufacturer_address")
+    private String address;
 
-    private String description;
-
-    public Category(String name, String description) {
+    public Manufacturer(String name, String address) {
         this.name = name;
-        this.description = description;
+        this.address = address;
     }
 
-    public Category() {
+    public Manufacturer() {
 
     }
 }

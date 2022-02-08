@@ -1,4 +1,4 @@
-package mk.ukim.finki.wpaudrecap.repository;
+package mk.ukim.finki.wpaudrecap.repository.impl;
 
 import mk.ukim.finki.wpaudrecap.bootstrap.DataHolder;
 import mk.ukim.finki.wpaudrecap.model.User;

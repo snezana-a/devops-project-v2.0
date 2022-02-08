@@ -24,20 +24,21 @@ public class ThymeleafCategoryServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        WebContext context = new WebContext(req, resp, req.getServletContext());
-        context.setVariable("ipAddress", req.getRemoteAddr());
-        context.setVariable("clientAgent", req.getHeader("User-Agent"));
-        context.setVariable("categories", this.categoryService.listCategories());
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        WebContext context = new WebContext(req,resp,req.getServletContext());
+        context.setVariable("ipAddress",req.getRemoteAddr());
+        context.setVariable("clientAgent",req.getHeader("User-Agent"));
+        context.setVariable("categories",categoryService.listCategories());
+        resp.setContentType("application/xhtml+xml");
 
-        this.springTemplateEngine.process("categories.html", context, resp.getWriter());
+        this.springTemplateEngine.process("categories.html", context,resp.getWriter());
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String categoryName = req.getParameter("name");
-        String categoryDescription = req.getParameter("description");
-        categoryService.create(categoryName, categoryDescription);
+        String categoryDesc = req.getParameter("description");
+        categoryService.create(categoryName,categoryDesc);
         resp.sendRedirect("/servlet/thymeleaf/category");
     }
 }

@@ -1,4 +1,4 @@
-package mk.ukim.finki.wpaudrecap.repository;
+package mk.ukim.finki.wpaudrecap.repository.impl;
 
 import mk.ukim.finki.wpaudrecap.bootstrap.DataHolder;
 import mk.ukim.finki.wpaudrecap.model.Category;
@@ -23,6 +23,10 @@ public class InMemoryCategoryRepository {
         DataHolder.categories.removeIf(r -> r.getName().equals(c.getName()));
         DataHolder.categories.add(c);
         return c;
+    }
+
+    public Optional<Category> findById(Long id) {
+        return DataHolder.categories.stream().filter(r -> r.getId().equals(id)).findFirst();
     }
 
     public Optional<Category> findByName(String name) {

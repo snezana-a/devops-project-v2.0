@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.file.attribute.UserPrincipal;
 
-@WebServlet(name = "LoginServlet", urlPatterns = "/login")
+@WebServlet(name = "LoginServlet", urlPatterns = "/servlet/login")
 public class LoginServlet extends HttpServlet {
 
     private final SpringTemplateEngine templateEngine;
