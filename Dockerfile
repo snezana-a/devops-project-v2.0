@@ -1,1 +1,1 @@
-FROM nginx:alpine
+FROM openjdk:8-jdk-alpine
