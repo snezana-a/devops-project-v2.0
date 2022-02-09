@@ -27,4 +27,4 @@ jobs:
                 file: ./Dockerfile
                 builder: ${{ steps.buildx.outputs.name }}
                 push: true
-                tags: 14753/devops-project-v2.0:v1.0
+                tags: 14753/devops-project-v2.0:v2.0
